@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container">
+    {% comment %} <img src="/auto+.png" width="60" height="50" class="evrd" alt=""> {% endcomment %}
+    <a class="navbar-brand" href="{% url 'index' %}">Vicky Autos</a>
+    <!-- <img src="img/everydaysneakers.jpg" width="60" height="50" class="evrd" alt=""> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon bg-dark text-white"></span> -->
+      <i class="fas fa-bars"></i>
+      
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-  item">
+          <p id="home"><a class="nav-link" href="#about">About</a></p>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vehicles
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="brand.html">Mercedes Benz</a></li>
+            <li><a class="dropdown-item" href="#">Lexus</a></li>
+            <!-- <li><hr class="dropdown-divider"></li> -->
+            <li><a class="dropdown-item" href="">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Hyundai</a></li>
+            <li><a class="dropdown-item" href="#">Chevrolet</a></li>
+            <li><a class="dropdown-item" href="#">Range Rover</a></li>
+            <li><a class="dropdown-item" href="#">Kia</a></li>
+            <li><a class="dropdown-item" href="#">Nissan</a></li>
+          </ul>
+        </li> 
+        <li class="nav-item">
+         <p id="home"> <a class="nav-link" href="#contact"> Contact</a></p>
+        </li>
+        
+        <li class="nav-item">
+         <a class="nav-link" href="{% url 'displaycart' %}">
+          {%if cartcount > 0 %}
+            <span class="badge bg-warning text-white">{{cartcount}}</span>
+          {% else %}
+          <span class="badge bg-warning text-dark">Warning</span>    
+         </a>
+        
+  
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.is_authenticated %}
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'displaycart' %}">Shopcart</a></li>
+              <li><a class="dropdown-item" href="{% url 'signout' %}">Sign out</a></li>
+              <li><a class="dropdown-item" href="{% url 'products' %}">Products</a></li>
+            {% else %}
+              <li><a class="dropdown-item" href="{% url 'signin' %}">Sign in</a></li>
+              <li><a class="dropdown-item" href="{% url 'products' %}">Products</a></li>
+              <li><a class="dropdown-item" href="{% url 'profile_update' %}">Profile update</a></li>
+            {%endif %}
+          </ul>
+        </li>
+         {% comment %} <li class="nav-item">
+          <p id="home"> <a class="nav-link" href="{% url 'signout' %}>Sign out</a></p>
+         </li>
+      </ul> {% endcomment %}
+      
+      {% comment %} <form>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+      </form> {% endcomment %}
+    </div>
+  </div>
+</nav>
+{% if messages %}
+  {% for item in messages %}
+  <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+    <strong>{{item}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}  | products {% endblock title %}
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+{% block carousel %} {% include "carousel.html" %} {% endblock carousel %}
+
+{% block content %}
+    <div class="container text-center text-capitalize mt-5 mb-5 text-warning">
+        <h3 class="mt-4 mb-4">All Brands</h3>
+        <div class="row justify-content-center text-dark text-center gy-5">
+            {% if product %}
+                {% for item in product %}
+                    <div class="col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 d-none d-sm-block">
+                        <div class="card">
+                        <img src="{{item.img.url}}" height="205" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Product: {{item.title}}</h5>
+                                <p class="card-text">Price: {{item.price}}</P>
+                                <p class="card-text text-truncate">Description: {{item.description}}</p>
+                                <a href="{% url 'details' item.id %}" class="btn btn-info text-white">Add to cart</a>
+                            </div>
+                        </div>
+                    </div> 
+                 {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block footer %} {% include "footer.html" %} {% endblock footer %}
+   

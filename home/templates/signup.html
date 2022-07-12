@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %} User signup {% endblock title %} 
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block content %}
+<div class="container mb-5">
+    <h1 class="cap text-center">User sign up</h1>
+    <div class="row justify-content-center justify-content-md-around justify-content-lg-center-text-center gy-5 text-center">
+        <div class="col-10 col-sm-10 col-md-2 col-lg-4 col-xl-4 d-none d-lg-block">
+            <div class="card border-0">
+              <img src="/image section/IMG_1765 (2).PNG" class="card-img-top  rounded-circle w-100 mx-auto team-img">
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4 d-none d-md-block">
+            <div class="profile-form px-lg-5">
+                <form action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+                <div class="mb-2">
+                    <div id="textHelp" class="form-text text-capitalize mt-3 form-text">
+                        <small> to fast track your .transaction, kindly signin or signup.</small>
+                    </div>
+                    <label for="exampleInputText1" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputtext1">
+                </div>
+                <div class="mb-2">
+                    <label for="exampleInputText1" class="form-label">First Name</label>
+                    <input type="text" name="first_name" class="form-control" id="exampleInputText1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputText1" class="form-label">Last Name</label>
+                    <input type="text" name="last_name" class="form-control" id="exampleInputtext1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputText1" class="form-label">Phone</label>
+                    <input type="text" name="phone" class="form-control" id="exampleInputtext1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputText1" class="form-label">Home Address</label>
+                    <input type="text" name="address" class="form-control" id="exampleInputtext1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputText1" class="form-label">State</label>
+                    <input type="text" name="state" class="form-control" id="exampleInputtext1">
+                    <input type="hidden" name="pix" value= 'profile/avatar.jpg' class="form-control" id="exampleInputtext1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password1" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Repeat New Passord</label>
+                    <input type="password" name="password2" class="form-control" id="exampleInputPsswordt1">
+                  </div>
+                  <div id="textHelp" class="form-text text-capitalize mt-3 form-text">
+                    Signin to your account or signup to create one.
+                  </div>
+                  <button type="submit" class="btn btn-success w-50 mt-4">SignUp</button>
+            </form>
+            <a href="{% url 'signin' %}" type="submit" class="btn btn-danger mt-4">SignIn</a>
+            <div id="emailHelp" class="form-text">Password should be at least 8 characters long.</div>
+            <div id="emailHelp" class="form-text">Password should not be similar to username or email.</div>
+            <div id="emailHelp" class="form-text">Can be a combination of alphabets,numbers and special characters.</div>
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+          <div class="card border-0">
+            <img src="/image section/IMG_1765 (2).PNG" class="card-img-top  rounded-circle w-100 mx-auto team-img">
+          </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}
+                  

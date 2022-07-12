@@ -1,0 +1,26 @@
+{% load humanize %}
+
+    (% if summary %)
+        (% for prod in summary %)
+            <tr>
+                <td><img src="{{prod.img.url}}" style="wioth: 60px;"></td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.quantity}}</td>
+                <td>{{prod.amount}}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+
+<table class="table">
+    <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>total: {{total|floatformat:2|intcomma}}</td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+{% block carousel %} {% include "carousel.html" %} {% endblock carousel %}
+
+{% block content %}
+    <div class="container-fluid mt-5 bg-secondary container11">
+        <div class="row justify-content-center text-dark text-center gy-5">
+        {% if vic %}
+            {% for v in vic %}
+        <!-- Box1-->
+                  <div class="col-10 col-sm-6 col-md-5 col-lg-4 col-xl-3 d-none d-sm-block">
+                    <div class="card hidecard">
+                      <img src="{{v.img.url}}" height="205" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title text-capitalize">Name: {{v.name}}</h5>
+                        <p class="card-text">Price: {{v.price}}</p>
+                        <p class="card-text text-truncate">Description: {{v.description}}</p>
+                        <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> View more</a>
+                      </div>
+                    </div>
+                  </div> 
+          
+            {% endfor %}
+        {% endif %}
+        </div> 
+    </div>
+{% endblock %}
+
+{% block about %} {% include "about.html" %} {% endblock about %}
+
+{% block contact %} {% include "contact.html" %} {% endblock contact %}
+
+{% block team %} {% include "team.html" %} {% endblock team %}
+
+{% block footer %} {% include "footer.html" %} {% endblock footer %}

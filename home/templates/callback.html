@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}  {{profile.user.username}}details {% endblock title %}
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+{% block carousel %} {% include "carousel.html" %} {% endblock carousel %}
+
+{% block content %}
+<div class="container mb-5">
+  <h1 class="cap text-center">Transaction Complete</h1>
+  <div class="row justify-content-center justify-content-md-around justify-content-lg-center-text-center gy-5 text-center">
+      <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 d-none d-md-block">
+          <div class="card border-0 bg-transparent">
+            <img src="/image section/IMG_1765 (2).PNG" class="card-img-top  rounded-circle  mx-auto team-img">
+            <div class="card-body">
+              <h5 class="card-title text-truncate">NAME: {{profile.user.username}}</h5>
+            </div>
+          </div>
+      </div>
+      <div class="col-10 col-sm-10 col-md-5 col-lg-5 col-xl-5 pt-5">
+        <h2>Dear {{profie.first_name|title}}, your transaction is successful</h2>
+        <h3>Thank you for your patronage...</h3>
+        <h6>We look forward to doing business with you.</h6>
+      </div>
+      <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+          <ul class="list-unstyled callback">
+            <li class="mb-2"><a href="#" class="btn w-75">home</a></li>
+            <li class="mb-2"><a href="/brand.html" class="btn w-75">brands</a></li>
+            <li class="mb-2"><a href="profile.html" class="btn w-75">profile</a></li>
+            <li class="mb-2"><a href="/profile update.html" class="btn w-75">update profile</a></li>
+            <li class="mb-2"><a href="password update.html" class="btn w-75">update password</a></li>
+            <li class="mb-2"><a href="#" class="btn w-75">transaction details</a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %} {% include "footer.html" %} {% endblock footer %}
+

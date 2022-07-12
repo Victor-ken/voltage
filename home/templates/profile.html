@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} profile {% endblock title %}
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+{% block carousel %} {% include "carousel.html" %} {% endblock carousel %}
+
+{% block content %}
+<div class="container mb-5">
+    <h1 class="cap">{{profile.user.username}}Profile</h1>
+    <div class="row justify-content-center justify-content-md-around justify-content-lg-center-text-center gy-5 text-center">
+        <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 d-none d-md-block">
+            <div class="card border-0 bg-transparent">
+              <img src="{{profile.pix.url}}" class="card-img-top  rounded-circle w-100 mx-auto team-img">
+              <div class="card-body">
+                <h5 class="card-title text-truncate">NAME: {{profile.username}}</h5>
+              </div>
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4 d-none d-md-block">
+            <div class="profile-form px-lg-5">
+              <form action="{% url 'profile' %}" method="POST">
+              {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">First Name</label>
+                      <input type="text" value="{{profile.first_name|title}}" class="form-control" id="exampleInputText1">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">Last Name</label>
+                      <input type="text" value="{{profile.last_name|title}}" class="form-control" id="exampleInputtext1">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                      <input type="email" value="{{profile.email}}" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">Phone</label>
+                      <input type="text" value="{{profile.phone}}" class="form-control" id="exampleInputtext1">
+                    </div>
+                  </form>
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+            <ul class="list-unstyled callback">
+              <li class="mb-3"><a href="{% url 'index' %}" class="btn w-75">home</a></li>
+              <li class="mb-3"><a href="{% url 'products' %}" class="btn w-75">products</a></li>
+              <li class="mb-3"><a href="{% url 'profile' %}" class="btn w-75">profile</a></li>
+              <li class="mb-3"><a href="{% url 'profile_update' %}" class="btn w-75">update profile</a></li>
+              <li class="mb-3"><a href="{% url 'password' %}" class="btn w-75">update password</a></li>
+              <li class="mb-3"><a href="details.html" class="btn w-75">transaction details</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %} {% include "footer.html" %} {% endblock footer %}
+   

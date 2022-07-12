@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} signin page {% endblock title %}
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block content %}
+<div class="container mb-5">
+    <h1 class="cap text-center">User signin</h1>
+    <div class="row justify-content-center justify-content-md-around justify-content-lg-center-text-center gy-5 text-center">
+        <div class="col-10 col-sm-10 col-md-2 col-lg-4 col-xl-4 d-none d-lg-block">
+            <div class="card border-0">
+              <img src="/image section/IMG_1765 (2).PNG" class="card-img-top  rounded-circle w-100 mx-auto team-img">
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4 d-none d-md-block">
+            <div class="profile-form px-lg-5">
+                <form action="{% url 'signin' %}" method="POST">
+                    {% csrf_token %}
+                <div class="mb-2">
+                    <div id="textHelp" class="form-text text-capitalize mt-3 form-text">
+                        <small> to fast track your .transaction, kindly signin or signup.</small>
+                    </div>
+                    <label for="exampleInputText1" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputtext1">
+                </div>
+                <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    <div id="textHelp" class="form-text text-capitalize mt-3 form-text">
+                        <small> to fast track your .transaction, kindly signin or signup.</small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success w-50 mt-4">Sign in</button>
+            </form>
+            <a href="{% url 'signup' %}" type="submit" class="btn btn-danger mt-4">signUP</a>
+            </div>
+        </div>
+        <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+          <div class="card border-0">
+            <img src="/image section/IMG_1765 (2).PNG" class="card-img-top  rounded-circle w-100 mx-auto team-img">
+          </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}
